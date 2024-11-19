@@ -1,0 +1,39 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme compatible with Material 3 -->
+    <style name="Base.Theme.PRACTICA4" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary colors for the theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+
+        <!-- Secondary color for accent elements -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <!-- Background colors for light and dark modes -->
+        <!-- <item name="colorBackground">@color/colorBackground</item> -->
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+
+        <!-- Error color -->
+        <item name="colorError">@color/colorError</item>
+        <item name="colorOnError">@color/colorOnError</item>
+
+        <!-- Fonts and text appearances -->
+        <item name="android:textColorPrimary">@color/colorOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorSecondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+
+        <!-- Customize toolbar appearance -->
+        <item name="toolbarStyle">@style/Widget.PRACTICA4.Toolbar</item>
+    </style>
+
+    <!-- Main application theme inheriting from base -->
+    <style name="Theme.PRACTICA4" parent="Base.Theme.PRACTICA4" />
+
+    <!-- Custom toolbar style -->
+    <style name="Widget.PRACTICA4.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+    </style>
+</resources>
