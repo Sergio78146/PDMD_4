@@ -1,8 +1,8 @@
 package es.studium.practica4;
 
- import android.os.Bundle;
- import android.view.View;
- import android.widget.Button;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         avatarImage = findViewById(R.id.avatarImage);
         resetButton = findViewById(R.id.resetButton);
 
+        resetButton.setVisibility(View.VISIBLE);  // Asegúrate de que el botón siempre sea visible
+        resetButton.setOnClickListener(v -> reset());
+
         showNameDialog();
     }
 
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton(getString(R.string.button_cancel), null);
+        builder.setOnCancelListener(dialog -> reset()); // Si el usuario cancela, llama al reset
         builder.show();
     }
 
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton(getString(R.string.button_cancel), null);
+        builder.setOnCancelListener(dialog -> reset()); // Si el usuario cancela, llama al reset
         builder.show();
     }
 
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton(getString(R.string.button_cancel), null);
+        builder.setOnCancelListener(dialog -> reset()); // Si el usuario cancela, llama al reset
         builder.show();
     }
 
@@ -84,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton(getString(R.string.button_cancel), null);
+        builder.setOnCancelListener(dialog -> reset()); // Si el usuario cancela, llama al reset
         builder.show();
     }
 
@@ -107,16 +113,12 @@ public class MainActivity extends AppCompatActivity {
         String avatarImageName = "crea_un_" + species.toLowerCase() + "_" + sex.toLowerCase() + "_" + profession.toLowerCase();
         int avatarResId = getResources().getIdentifier(avatarImageName, "drawable", getPackageName());
         avatarImage.setImageResource(avatarResId);
-
-        resetButton.setVisibility(View.VISIBLE);  // Asegúrate de que el botón de reinicio sea visible
-        resetButton.setOnClickListener(v -> reset());
     }
 
     private void reset() {
         name = sex = species = profession = null;
         avatarInfo.setText("");
         avatarImage.setImageResource(0);
-        resetButton.setVisibility(View.INVISIBLE);  // Ocultar el botón después de resetear
-        showNameDialog();
+        showNameDialog(); // Vuelve al flujo inicial
     }
 }
